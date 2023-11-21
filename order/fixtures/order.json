@@ -1,0 +1,58 @@
+[
+    {
+        "model": "order.Order",
+        "pk": 1,
+        "fields": {
+            "customer": 1,
+            "date": "2022-01-01T00:00:00Z",
+            "status": "delivered",
+            "total_price": 61.96
+        }
+    },
+    {
+        "model": "order.OrderItem",
+        "pk": 1,
+        "fields": {
+            "order": 1,
+            "product": 1,
+            "quantity": 2
+        }
+    },
+    {
+        "model": "order.OrderItem",
+        "pk": 2,
+        "fields": {
+            "order": 1,
+            "product": 2,
+            "quantity": 2
+        }
+    },
+    {
+        "model": "order.Order",
+        "pk": 2,
+        "fields": {
+            "customer": 1,
+            "date": "2023-01-01T00:00:00Z",
+            "status": "pending",
+            "total_price": 61.96
+        }
+    },
+    {
+        "model": "order.OrderItem",
+        "pk": 3,
+        "fields": {
+            "order": 2,
+            "product": 1,
+            "quantity": 2
+        }
+    },
+    {
+        "model": "order.OrderItem",
+        "pk": 4,
+        "fields": {
+            "order": 2,
+            "product": 2,
+            "quantity": 2
+        }
+    }
+]

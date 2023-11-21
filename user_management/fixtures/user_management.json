@@ -1,0 +1,55 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "dipper",
+            "first_name": "Dipper",
+            "last_name": "Pines"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "mabel",
+            "first_name": "Mabel",
+            "last_name": "Pines"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "stan",
+            "first_name": "Stanley",
+            "last_name": "Pines"
+        }
+    },
+    {
+        "model": "user_management.Customer",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "phone": "1234567890",
+            "address": "123 Main St, Gravity Falls, OR 97415"
+        }
+    },
+    {
+        "model": "user_management.Customer",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "phone": "1234567890",
+            "address": "123 Main St, Gravity Falls, OR 97415"
+        }
+    },
+    {
+        "model": "user_management.Manager",
+        "pk": 1,
+        "fields": {
+            "user": 3,
+            "phone": "1234567890"
+        }
+    }
+]

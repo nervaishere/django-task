@@ -8,11 +8,11 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, default=OrderStatus.PENDING, choices=OrderStatus.choices)
     total_price = models.FloatField(default=0)
-    
+
     objects = OrderQuerySet.as_manager()
 
     def calculate_total_price(self):
-        return 0
+        return Order.objects.filter(Sum('total_price'))
 
     def accept(self):
         self.status = OrderStatus.ACCEPTED

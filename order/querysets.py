@@ -1,5 +1,5 @@
 from django.db.models import QuerySet
-from django.db.models import *
+from django.db.models import Sum
 
 
 class OrderQuerySet(QuerySet):
@@ -7,12 +7,11 @@ class OrderQuerySet(QuerySet):
         return self.filter(customer=customer)
 
     def total_price(self):
-        price = list(map(float, self.values_list('total_price', flat=True)))
-        return sum(price)
+        return self.aggregate(tp=Sum('total_price')).get('tp')
 
     def total_price_by_customer(self, customer):
-        price = list(map(float, self.filter(customer=customer).values_list('total_price', flat=True)))
-        return sum(price)
+        query = self.filter(customer=customer).aggregate(tp=Sum('total_price')).get('tp')
+        return query
 
     def submitted_in_date(self, date_value):
         return self.filter(date=date_value)

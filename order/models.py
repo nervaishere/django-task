@@ -13,10 +13,8 @@ class Order(models.Model):
     objects = OrderQuerySet.as_manager()
 
     def calculate_total_price(self):
-        product_price = self.orderitem_set.aggregate(total=Sum(F('quantity')*F('product__price')))
+        product_price = round(list(self.orderitem_set.aggregate(total=Sum(F('quantity')*F('product__price'))).values())[0],2)
         return product_price
-
-        # return product_quantity
 
     def accept(self):
         self.status = OrderStatus.ACCEPTED
@@ -46,6 +44,6 @@ class OrderItem(models.Model):
     def save(self, *args, **kwargs):
         """You can not modify this method"""
         super().save(*args, **kwargs)
-        self.order.total_price = round(list(self.order.calculate_total_price().values())[0],2)
+        self.order.total_price = self.order.calculate_total_price()
         self.order.save()
 
